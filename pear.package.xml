@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.1" version="2.0"
+    xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+    <name>LUKA_GoogleAdWords</name>
+    <channel>connect.magentocommerce.com/community</channel>
+    <summary>This Module integrates the Google AdWords Conversion Tracking code.</summary>
+    <description>This Module integrates the Google AdWords Conversion Tracking code into Magento.
+
+The code will be placed on the onepage checkout success page</description>
+    <lead>
+        <name>Axel Helmert</name>
+        <user>AxelH</user>
+        <email>ah@luka.de</email>
+        <active>yes</active>
+    </lead>
+    <date>2009-09-03</date>
+    <time>13:41:57</time>
+    <version>
+        <release>1.0.0</release>
+        <api>1.0.0</api>
+    </version>
+    <stability>
+        <release>stable</release>
+        <api>stable</api>
+    </stability>
+    <license uri="http://www.gnu.org/licenses/gpl-3.0.txt">GNU General Public License 3</license>
+    <notes>See https://github.com/lukanetconsult/mage-google-adwords/blob/master/CHANGELOG.md</notes>
+    <contents></contents>
+    <dependencies>
+        <required>
+            <php>
+                <min>5.2</min>
+                <max>5.99999</max>
+            </php>
+            <pearinstaller>
+                <min>1.6.2</min>
+            </pearinstaller>
+        </required>
+    </dependencies>
+    <phprelease />
+</package>
