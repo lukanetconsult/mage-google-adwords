@@ -1,0 +1,55 @@
+<?php
+/**
+ * Template for LUKA GoogleAdWords Conversion Tracking
+ *
+ * LICENSE:
+ * This file is part of LUKA_GoogleAdWords.
+ *
+ * LUKA_GoogleAdWords is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * LUKA_GoogleAdWords is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with LUKA_GoogleAdWords.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ *
+ * @see        LUKA_GoogleAdWords_Block_Conversion
+ * @category   Templates
+ * @package    LUKA_GoogleAdWords
+ * @copyright  Copyright (c) 2009 LUKA netconsult GmbH (www.luka.de)
+ * @license    GNU General Public Licence 3 <http://www.gnu.org/licenses/gpl-3.0.txt>
+ * @version    $Id: conversion.phtml 9866 2011-11-28 12:10:26Z helmert $
+ */
+
+/* @var $this LUKA_GoogleAdWords_Block_Conversion */
+?>
+<?php if ($this->isActive()): ?>
+    <!-- Google Conversion Code -->
+    <div class="google-adwords-conversion-tracker">
+        <script type="text/javascript">
+        var google_conversion_id = <?php echo $this->getConversionId() ?>;
+        var google_conversion_language = '<?php echo $this->jsQuoteEscape($this->getConversionLanguage()) ?>';
+        var google_conversion_format = "1";
+        var google_conversion_color = '<?php echo $this->jsQuoteEscape($this->getConversionColor()) ?>';
+        var google_conversion_label = '<?php echo $this->jsQuoteEscape($this->getConversionLabel()) ?>';
+
+        <?php $_value = (double)$this->getConversionValue() ?>
+        <?php if ($_value > 0): ?>
+        var google_conversion_value = <?php echo $_value ?>;
+        <?php endif ?>
+        </script>
+        <script type="text/javascript" src="<?php echo $this->getConversionScriptUrl() ?>"></script>
+
+        <noscript>
+            <div style="display:inline">
+                <img height="1" width="1" style="border-style:none" alt="" src="<?php echo $this->getFallbackUrl() ?>" />
+            </div>
+        </noscript>
+    </div>
+<?php endif ?>

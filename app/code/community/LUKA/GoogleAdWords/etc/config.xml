@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <LUKA_GoogleAdWords>
+            <version>1.0.0</version>
+        </LUKA_GoogleAdWords>
+    </modules>
+    
+    <global>
+        <helpers>
+            <luka_googleaw>
+                <class>LUKA_GoogleAdWords_Helper</class>
+            </luka_googleaw>
+        </helpers>
+
+        <blocks>
+            <luka_googleaw>
+                <class>LUKA_GoogleAdWords_Block</class>
+            </luka_googleaw>
+        </blocks>
+        
+        <models>
+            <luka_googleaw>
+                <class>LUKA_GoogleAdWords</class>
+            </luka_googleaw>
+        </models>
+    </global>
+    
+    <frontend>
+        <layout>
+            <updates>
+                <luka_googleaw>
+                    <file>luka_googleadwords.xml</file>
+                </luka_googleaw>
+            </updates>
+        </layout>
+        
+        <translate>
+            <modules>
+                <LUKA_GoogleAdWords>
+                    <files>
+                        <luka>LUKA_GoogleAdWords.csv</luka>
+                    </files>
+                </LUKA_GoogleAdWords>
+            </modules>
+        </translate>
+    </frontend>
+    
+    <default>
+        <google>
+            <adwords_conversion>
+                <enable>0</enable>
+                <color>ffffff</color>
+            </adwords_conversion>
+        </google>
+    </default>
+</config>

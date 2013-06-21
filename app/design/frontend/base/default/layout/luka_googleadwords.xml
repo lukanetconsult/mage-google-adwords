@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+        <reference name="before_body_end">
+            <block type="luka_googleaw/conversion" name="luka.google_conversion_tracking" />
+        </reference>
+    </default>
+</layout>
