@@ -23,7 +23,7 @@
     <target name="build" depends="clean">
         <mkdir dir="${build.dir}" />
         
-        <magepackage packagexml="${basedir}/package.xml" packagefile="${build.dir}/">
+        <magepackage packagexml="${basedir}/package.xml" packagefile="${build.dir}/${build.package.name}">
             <fileset dir="${basedir}/app">
                 <include name="app/**" />
             </fileset>

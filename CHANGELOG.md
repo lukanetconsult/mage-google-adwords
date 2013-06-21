@@ -1,4 +1,4 @@
-# Version 1.0 - LUKA netconsult GmbH 
+# Version 1.0
 
 * Added support for multiple conversions
 * Moved tracking code to `before_body_end` block.
