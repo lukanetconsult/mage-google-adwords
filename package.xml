@@ -3,7 +3,7 @@
     <name>LUKA_GoogleAdWords</name>
     <version>1.0.0</version>
     <stability>stable</stability>
-    <license>GPL-3.0</license>
+    <license uri="http://www.gnu.org/licenses/gpl-3.0.txt">GPL-3.0</license>
     <channel>community</channel>
   
     <summary>This Module integrates the Google AdWords Conversion Tracking code.</summary>

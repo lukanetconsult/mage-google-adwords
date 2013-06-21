@@ -24,7 +24,7 @@
         <mkdir dir="${build.dir}" />
         
         <magepackage packagexml="${basedir}/package.xml" packagefile="${build.dir}/${build.package.name}">
-            <fileset dir="${basedir}/app">
+            <fileset dir="${basedir}">
                 <include name="app/**" />
             </fileset>
         </magepackage>
