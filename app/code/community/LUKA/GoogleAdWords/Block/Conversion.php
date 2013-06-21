@@ -92,8 +92,6 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
     public function isEnabled()
     {
         $enabled = Mage::getStoreConfigFlag('google/adwords_conversion/enable');
-        $enabled = ($enabled && ($this->getOrder() !== null));
-
         return $enabled;
     }
 
@@ -119,7 +117,7 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
             $this->_initConversionCollection();
         }
 
-        return $this;
+        return $this->_conversionCollection;
     }
 
     /**
@@ -255,7 +253,7 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
             $this->setOrder($order);
         }
 
-        return $this->getData('order');
+        return $this->_getData('order');
     }
 
     /**
@@ -269,9 +267,8 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
             return false;
         }
 
-        if (!$this->hasConversionValue()) {
+        if (!$this->hasConversionValue() && $this->getOrder()) {
             $total = $this->getOrder()->getSubtotal();
-
             $this->setConversionValue($total);
         }
 
@@ -292,6 +289,23 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
         }
 
         return $url;
+    }
+
+    /**
+     * @return int
+     */
+    public function getConversionFormat()
+    {
+        $format = (int)$this->getCurrentConversion()->getFormat();
+        if ($format < 1 || $format > 3) {
+            $format = (int)Mage::getStoreConfig('google/adwords_conversion/format');
+
+            if ($format < 1 || $format > 3) {
+                $format = 3;
+            }
+        }
+
+        return $format;
     }
 
     /**

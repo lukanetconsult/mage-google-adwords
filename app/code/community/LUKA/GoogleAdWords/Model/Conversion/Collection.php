@@ -1,6 +1,6 @@
 <?php
 /**
- * LICENSE: 
+ * LICENSE:
  * This file is part of LUKA_GoogleAdWords.
  *
  * LUKA_GoogleAdWords is free software: you can redistribute it and/or modify
@@ -44,7 +44,7 @@ extends Varien_Data_Collection
             return false;
         }
 
-        $item = Mage::getModel('googleadwords/conversion');
+        $item = Mage::getModel('luka_googleaw/conversion');
         $item->setData($itemData);
 
         return $item;

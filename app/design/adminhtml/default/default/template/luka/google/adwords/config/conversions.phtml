@@ -1,6 +1,6 @@
 <?php
 /**
- * LICENSE: 
+ * LICENSE:
  * This file is part of LUKA_GoogleAdWords.
  *
  * LUKA_GoogleAdWords is free software: you can redistribute it and/or modify
@@ -36,117 +36,120 @@ $_colspan = $_colspan > 1 ? 'colspan="' . $_colspan . '"' : '';
 ?>
 
 <div class="grid" id="grid<?php echo $_htmlId ?>">
-<table cellpadding="0" cellspacing="0" class="border">
-<tbody>
+    <table cellpadding="0" cellspacing="0" class="border">
+        <tbody>
+            <tr class="headings" id="headings<?php echo $_htmlId ?>">
+                <th><?php echo $this->__('Conversion') ?></th>
+                <th <?php echo $_colspan?>></th>
+            </tr>
 
-<tr class="headings" id="headings<?php echo $_htmlId ?>">
-<?php foreach ($this->_columns as $columnName => $column):?>
-<th><?php echo $column['label'] ?></th>
-<?php endforeach;?>
-<th <?php echo $_colspan?>></th>
-</tr>
-
-<tr id="addRow<?php echo $_htmlId ?>">
-<td colspan="<?php echo count($this->_columns) ?>"></td>
-<td <?php echo $_colspan?>>
-<button style="" onclick="" class="scalable add" type="button" id="addToEndBtn<?php echo $_htmlId ?>">
-<span><?php echo $this->_addButtonLabel ?></span>
-</button>
-</td>
-</tr>
-
-</tbody>
-</table>
-<input type="hidden" name="<?php echo $this->getElement()->getName() ?>[__empty]" value="" />
+            <tr id="addRow<?php echo $_htmlId ?>">
+                <td></td>
+                <td <?php echo $_colspan?>>
+                    <button style="" onclick="" class="scalable add" type="button" id="addToEndBtn<?php echo $_htmlId ?>">
+                        <span><?php echo $this->_addButtonLabel ?></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="hidden" name="<?php echo $this->getElement()->getName() ?>[__empty]" value="" />
 </div>
+
 <div id="empty<?php echo $_htmlId ?>">
-<button style="" onclick="" class="scalable add" type="button" id="emptyAddBtn<?php echo $_htmlId ?>">
-<span><?php echo $this->_addButtonLabel ?></span>
-</button>
+    <button style="" onclick="" class="scalable add" type="button" id="emptyAddBtn<?php echo $_htmlId ?>">
+        <span><?php echo $this->_addButtonLabel ?></span>
+    </button>
 </div>
 
 <script type="text/javascript">
 //<![CDATA[
 // create row creator
 var arrayRow<?php echo $_htmlId ?> = {
-// define row prototypeJS template
-template : new Template(
-'<tr id="#{_id}">'
-<?php foreach ($this->_columns as $columnName => $column):?>
-+'<td>'
-+'<?php echo $this->_renderCellTemplate($columnName)?>'
-+'<\/td>'
-<?php endforeach;?>
-<?php if ($this->_addAfter):?>
-+'<td><button onclick="" class="scalable add" type="button" id="addAfterBtn#{_id}"><span><?php echo Mage::helper('adminhtml')->__('Add after') ?><\/span><\/button><\/td>'
-<?php endif;?>
-+'<td><button onclick="arrayRow<?php echo $_htmlId ?>.del(\'#{_id}\')" class="scalable delete" type="button"><span><?php echo Mage::helper('adminhtml')->__('Delete') ?><\/span><\/button><\/td>'
-+'<\/tr>'
-),
+    // define row prototypeJS template
+    template : new Template(
+        '<tr id="#{_id}"><td><table class="form-list">'
+        <?php foreach ($this->_columns as $columnName => $column):?>
+            +'<tr>'
+            + '<td class="label"><?php echo $column['label'] ?><\/td>'
+            + '<td class="value"><?php echo $this->_renderCellTemplate($columnName)?><\/td>'
+            +'<\/tr>'
+        <?php endforeach;?>
+        + '<\/table><\/td>'
+        <?php if ($this->_addAfter):?>
+            +'<td><button onclick="" class="scalable add" type="button" id="addAfterBtn#{_id}"><span><?php echo Mage::helper('adminhtml')->__('Add after') ?><\/span><\/button><\/td>'
+        <?php endif;?>
+        +'<td><button onclick="arrayRow<?php echo $_htmlId ?>.del(\'#{_id}\')" class="scalable delete" type="button"><span><?php echo Mage::helper('adminhtml')->__('Delete') ?><\/span><\/button><\/td>'
+        +'<\/tr>'
+    ),
 
-rowsCount : 0,
+    rowsCount : 0,
 
-add : function(templateData, insertAfterId)
-{
-// generate default template data
-if ('' == templateData) {
-var d = new Date();
-var templateData = {
-<?php foreach ($this->_columns as $columnName => $column):?>
-<?php echo $columnName ?> : '',
-<?php endforeach;?>
-_id : '_' + d.getTime() + '_' + d.getMilliseconds()
-};
-}
+    add : function(templateData, insertAfterId)
+    {
+        // generate default template data
+        if ('' == templateData) {
+            var d = new Date();
+            var templateData = {
+                <?php foreach ($this->_columns as $columnName => $column):?>
+                    <?php echo $columnName ?> : '',
+                <?php endforeach;?>
+                _id : '_' + d.getTime() + '_' + d.getMilliseconds()
+            };
+        }
 
-// insert before last row
-if ('' == insertAfterId) {
-Element.insert($('addRow<?php echo $_htmlId ?>'), {before: this.template.evaluate(templateData)});
-}
-// insert after specified row
-else {
-Element.insert($(insertAfterId), {after: this.template.evaluate(templateData)});
-}
+        // insert before last row
+        if ('' == insertAfterId) {
+            Element.insert($('addRow<?php echo $_htmlId ?>'), {before: this.template.evaluate(templateData)});
+        }
 
-<?php if ($this->_addAfter):?>
-Event.observe('addAfterBtn' + templateData._id, 'click', this.add.bind(this, '', templateData._id));
-<?php endif;?>
+        // insert after specified row
+        else {
+            Element.insert($(insertAfterId), {after: this.template.evaluate(templateData)});
+        }
 
-this.initSelectValues(templateData);
-this.rowsCount += 1;
-},
+        <?php if ($this->_addAfter):?>
+            Event.observe('addAfterBtn' + templateData._id, 'click', this.add.bind(this, '', templateData._id));
+        <?php endif;?>
 
-initSelectValues: function(templateData)
-{
-    var el = $(templateData._id);
-    if (!el) {
-        return;
-    }
+        this.initSelectValues(templateData);
+        this.rowsCount += 1;
+    },
 
-    el.select('select').each(function(sel) {
-        if (!templateData[sel.name]) {
+    initSelectValues: function(templateData)
+    {
+        var el = $(templateData._id);
+        if (!el) {
             return;
         }
 
-        Form.Element.setValue(sel, templateData[sel.name]);
-    });
-}
+        el.select('select').each(function(sel) {
+            var m = sel.name.match(/\[([^\[\]]+)\]$/i);
+            var key = (m)? m[1] : false;
 
-del : function(rowId)
-{
-$(rowId).remove();
-this.rowsCount -= 1;
-if (0 == this.rowsCount) {
-this.showButtonOnly();
-}
-},
+            if (!key || !templateData[key]) {
+                return;
+            }
 
-showButtonOnly : function()
-{
-$('grid<?php echo $_htmlId ?>').hide();
-$('empty<?php echo $_htmlId ?>').show();
-}
-}
+            Form.Element.setValue(sel, templateData[key]);
+        });
+    },
+
+    del : function(rowId)
+    {
+        $(rowId).remove();
+        this.rowsCount -= 1;
+        if (0 == this.rowsCount) {
+            this.showButtonOnly();
+        }
+    },
+
+    showButtonOnly : function()
+    {
+        $('grid<?php echo $_htmlId ?>').hide();
+        $('empty<?php echo $_htmlId ?>').show();
+    }
+};
 
 // bind add action to "Add" button in last row
 Event.observe('addToEndBtn<?php echo $_htmlId ?>', 'click', arrayRow<?php echo $_htmlId ?>.add.bind(arrayRow<?php echo $_htmlId ?>, '', ''));
@@ -155,17 +158,17 @@ Event.observe('addToEndBtn<?php echo $_htmlId ?>', 'click', arrayRow<?php echo $
 <?php
 $_addAfterId = "headings{$_htmlId}";
 foreach ($this->getArrayRows() as $_rowId => $_row) {
-echo "arrayRow{$_htmlId}.add(" . $_row->toJson() . ", '{$_addAfterId}');\n";
-$_addAfterId = $_rowId;
+    echo "arrayRow{$_htmlId}.add(" . $_row->toJson() . ", '{$_addAfterId}');\n";
+    $_addAfterId = $_rowId;
 }
 ?>
 
 // initialize standalone button
 $('empty<?php echo $_htmlId ?>').hide();
 Event.observe('emptyAddBtn<?php echo $_htmlId ?>', 'click', function () {
-$('grid<?php echo $_htmlId ?>').show();
-$('empty<?php echo $_htmlId ?>').hide();
-arrayRow<?php echo $_htmlId ?>.add('', '');
+    $('grid<?php echo $_htmlId ?>').show();
+    $('empty<?php echo $_htmlId ?>').hide();
+    arrayRow<?php echo $_htmlId ?>.add('', '');
 });
 
 // if no rows, hide grid and show button only
@@ -175,7 +178,7 @@ arrayRow<?php echo $_htmlId ?>.showButtonOnly();
 
 // toggle the grid, if element is disabled (depending on scope)
 <?php if ($this->getElement()->getDisabled()):?>
-toggleValueElements({checked:true}, $('grid<?php echo $_htmlId ?>').parentNode);
+    toggleValueElements({checked:true}, $('grid<?php echo $_htmlId ?>').parentNode);
 <?php endif;?>
 //]]>
 </script>

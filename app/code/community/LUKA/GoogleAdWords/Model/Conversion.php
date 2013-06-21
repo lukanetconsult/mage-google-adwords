@@ -1,6 +1,6 @@
 <?php
 /**
- * LICENSE: 
+ * LICENSE:
  * This file is part of LUKA_GoogleAdWords.
  *
  * LUKA_GoogleAdWords is free software: you can redistribute it and/or modify
@@ -104,5 +104,13 @@ class LUKA_GoogleAdWords_Model_Conversion extends Varien_Object
     public function getColor()
     {
         return $this->_getData('color');
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getFormat()
+    {
+        return $this->_getData('format');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * LICENSE: 
+ * LICENSE:
  * This file is part of LUKA_GoogleAdWords.
  *
  * LUKA_GoogleAdWords is free software: you can redistribute it and/or modify
@@ -66,18 +66,30 @@ extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
         ));
 
         $this->addColumn('code', array(
-                'label' => $this->__('Conversion ID'),
-                'size' => 28
+            'label' => $this->__('ID'),
+            'size' => 28
         ));
 
         $this->addColumn('label', array(
-                'label' => $this->__('Label'),
-                'size' => 28
+            'label' => $this->__('Label'),
+            'size' => 28
+        ));
+
+        $this->addColumn('format', array(
+            'label' => $this->__('Format'),
+            'size' => 16
         ));
 
         $this->addColumn('color', array(
-                'label' => $this->__('Color'),
-                'size' => 16
+            'label' => $this->__('Color'),
+            'size' => 16
+        ));
+
+        $this->addColumn('format', array(
+            'label' => $this->__('Notification Format'),
+            'size' => 16,
+            'renderer' => $this->getLayout()->createBlock('luka_googleaw/adminhtml_config_conversion_select'),
+            'options' => Mage::getModel('luka_googleaw/config_source_format')->toOptionArray(true)
         ));
 
         $this->addColumn('use_value', array(
@@ -86,7 +98,7 @@ extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
             'renderer' => $this->getLayout()->createBlock('luka_googleaw/adminhtml_config_conversion_select'),
             'options' => array(
                 array('value' => 1, 'label' => $this->helper('adminhtml')->__('Yes')),
-                array('value' => 1, 'label' => $this->helper('adminhtml')->__('No'))
+                array('value' => 0, 'label' => $this->helper('adminhtml')->__('No'))
             )
         ));
     }

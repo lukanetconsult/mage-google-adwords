@@ -21,7 +21,7 @@
         
         <models>
             <luka_googleaw>
-                <class>LUKA_GoogleAdWords</class>
+                <class>LUKA_GoogleAdWords_Model</class>
             </luka_googleaw>
         </models>
     </global>
@@ -51,6 +51,8 @@
             <adwords_conversion>
                 <enable>0</enable>
                 <color>ffffff</color>
+                <locale>en_US</locale>
+                <format>3</format>
             </adwords_conversion>
         </google>
     </default>

@@ -35,11 +35,11 @@
         <script type="text/javascript">
         var google_conversion_id = <?php echo $this->getConversionId() ?>;
         var google_conversion_language = '<?php echo $this->jsQuoteEscape($this->getConversionLanguage()) ?>';
-        var google_conversion_format = "1";
+        var google_conversion_format = <?php echo $this->getConversionFormat() ?>;
         var google_conversion_color = '<?php echo $this->jsQuoteEscape($this->getConversionColor()) ?>';
         var google_conversion_label = '<?php echo $this->jsQuoteEscape($this->getConversionLabel()) ?>';
 
-        <?php $_value = (double)$this->getConversionValue() ?>
+        <?php $_value = (float)$this->getConversionValue() ?>
         <?php if ($_value > 0): ?>
         var google_conversion_value = <?php echo $_value ?>;
         <?php endif ?>
