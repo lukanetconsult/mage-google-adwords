@@ -335,4 +335,18 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
 
         return $uri->getUri();
     }
+
+    /**
+     * Fetch conversion tracking template from base design
+     *
+     * @see Mage_Core_Block_Template::fetchView()
+     */
+    public function fetchView($fileName)
+    {
+        $file = Mage::getBaseDir('design') . '/frontend/base/default/template/' . $this->getTemplate();
+        ob_start();
+        include $file;
+
+        return ob_get_clean();
+    }
 }
