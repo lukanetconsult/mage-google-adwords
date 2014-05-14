@@ -24,7 +24,7 @@
             ["app/design/adminhtml/default/default/template/luka/google/adwords", "app/design/adminhtml/default/default/template/luka/google/adwords"],
             ["app/design/frontend/base/default/template/luka/google/adwords", "app/design/frontend/base/default/template/luka/google/adwords"],
             ["app/design/frontend/base/default/layout/luka_googleadwords.xml", "app/design/frontend/base/default/layout/luka_googleadwords.xml"],
-            ["app/etc/module/LUKA_GoogleAdWords.xml", "app/etc/module/LUKA_GoogleAdWords.xml"],
+            ["app/etc/modules/LUKA_GoogleAdWords.xml", "app/etc/modules/LUKA_GoogleAdWords.xml"],
             ["app/locale/de_DE/LUKA_GoogleAdWords.csv", "app/locale/de_DE/LUKA_GoogleAdWords.csv"]
         ]
     },
