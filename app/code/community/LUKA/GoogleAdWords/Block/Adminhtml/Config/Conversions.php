@@ -43,7 +43,7 @@ extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
 
     }
 
-	/**
+    /**
      * (non-PHPdoc)
      * @see Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract::_prepareToRender()
      */
@@ -56,13 +56,14 @@ extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
             'options' => array(
                 array('value' => 'checkout_onepage_success', 'label' => $this->__('Onepage Checkout Success')),
                 array('value' => 'paypal_standard_success', 'label' => $this->__('PayPal Standard Checkout Success')),
-                array('value' => 'CUSTOM', 'label' => $this->__('Use Custom Action Name'))
+                array('value' => 'CUSTOM', 'label' => $this->__('Use Custom Layout Handle'))
             )
         ));
 
         $this->addColumn('custom_action', array(
-            'label' => $this->__('Custom Action'),
-            'size' => 28
+            'label' => $this->__('Layout Handle'),
+            'size' => 28,
+            'comment' => 'Only used when "Custom Layout Handle" is selected',
         ));
 
         $this->addColumn('code', array(
@@ -103,7 +104,7 @@ extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
         ));
     }
 
-	/**
+    /**
      * (non-PHPdoc)
      * @see Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract::addColumn()
      */
