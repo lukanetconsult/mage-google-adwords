@@ -11,7 +11,7 @@
   "keywords" : [ "magento", "adwords", "google" ],
   "extra" : {
     "branch-alias" : {
-      "dev-stable" : "1.0.x-dev"
+      "dev-develop" : "1.1.x-dev"
     },
     "map" : [
         [ "app/code/community/LUKA/GoogleAdWords", "app/code/community/LUKA/GoogleAdWords" ],
