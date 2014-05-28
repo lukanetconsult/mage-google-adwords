@@ -15,10 +15,14 @@
         "google"
     ],
 
+    "require" : {
+        "magento-hackathon/magento-composer-installer" : "1.*"
+    },
+
     "extra" : {
         "branch-alias": {
-            "dev-master": "1.1.x-dev",
-            "dev-stable": "1.0.x-dev"
+            "dev-develop": "1.1.x-dev",
+            "dev-master": "1.0.x-dev"
         },
         "map" : [
             ["app/code/community/LUKA/GoogleAdWords", "app/code/community/LUKA/GoogleAdWords"],
