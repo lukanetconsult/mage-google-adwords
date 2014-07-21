@@ -131,7 +131,7 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
         return $this;
     }
 
-	/**
+    /**
      * Set current conversion
      *
      * @param LUKA_GoogleAdWords_Model_Conversion $conversion
@@ -325,8 +325,10 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
               . $this->getConversionId() . '/';
 
         $query = array('label' => $this->getConversionLabel());
-        if ($this->getConversionValue()) {
-            $query['value'] = $this->getConversionValue();
+        $value = (float)$this->getConversionValue();
+
+        if ($value > 0) {
+            $query['value'] = $value;
         }
 
         /* @var $uri Zend_Uri_Http */
