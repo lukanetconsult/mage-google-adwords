@@ -3,20 +3,23 @@
     <name>LUKA_GoogleAdWords</name>
     <version>1.0.1</version>
     <stability>stable</stability>
-    <license uri="http://www.gnu.org/licenses/gpl-3.0.txt">GPL-3.0</license>
+    <license uri="http://www.gnu.org/licenses/gpl-3.0.txt">GNU General Public License 3</license>
     <channel>community</channel>
+    <extends />
+    <compatible />
+    <dependencies />
 
-    <summary>This Module integrates the Google AdWords Conversion Tracking code.</summary>
+    <summary><![CDATA[This Module integrates the Google AdWords Conversion Tracking code.]]></summary>
     <description><![CDATA[This Module integrates the Google AdWords Conversion Tracking code into Magento.
 
 The code will be placed on the configured pages in the system config.
 You can find the source code on github: https://github.com/lukanetconsult/mage-google-adwords
 Report Issues on github: https://github.com/lukanetconsult/mage-google-adwords/issues]]></description>
-
+    <notes><![CDATA[See CHANGELOG.md]]></notes>
     <authors>
         <author>
             <name>Axel Helmert</name>
-            <user>AxelH</user>
+            <user>tuxrampage</user>
             <email>ah@luka.de</email>
         </author>
     </authors>
