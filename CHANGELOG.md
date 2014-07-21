@@ -1,6 +1,11 @@
+# Version 1.0.1
+
+Fixed possible different conversion values in script and noscript
+See https://github.com/lukanetconsult/mage-google-adwords/issues/5
+
 # Version 1.0
 
-**Important**: 
+**Important**:
 The system configuration for this module has changed to support multiple conversions!
 You have to re-configure your conversion tracking IDs.
 
