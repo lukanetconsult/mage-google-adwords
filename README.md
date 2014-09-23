@@ -7,9 +7,11 @@ You may view the recent changes in [CHANGELOG.md](CHANGELOG.md)
 
 Feel free to contact us at info@luka.de for support.
 
+Please read the [[FAQ]] in the [[Home|wiki]] for troubleshooting the most common issues.
+
 # Installing
 
-This module is available as connect package via magento connect: 
+This module is available as connect package via magento connect:
 http://www.magentocommerce.com/magento-connect/luka-google-adwords-conversion-tracking.html
 
 ## Manual installation
@@ -18,5 +20,4 @@ To install from source simply copy the files to magento installation (magento ro
 
 # Magento compatibility
 
-This module is compatible with magento versions 1.5 up to 1.7
- 
+This module is compatible with magento versions 1.5.x up to 1.9.x
