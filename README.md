@@ -7,7 +7,7 @@ You may view the recent changes in [CHANGELOG.md](CHANGELOG.md)
 
 Feel free to contact us at info@luka.de for support.
 
-Please read the [[FAQ]] in the [[Home|wiki]] for troubleshooting the most common issues.
+Please read the [FAQ](https://github.com/lukanetconsult/mage-google-adwords/wiki/FAQ) in the [wiki](https://github.com/lukanetconsult/mage-google-adwords/wiki) for troubleshooting the most common issues.
 
 # Installing
 
