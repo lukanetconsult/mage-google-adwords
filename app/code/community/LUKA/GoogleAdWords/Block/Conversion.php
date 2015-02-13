@@ -329,6 +329,9 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
             $query['value'] = $this->getConversionValue();
         }
 
+//        $query['guid'] = 'ON';
+//        $query['script'] = 0;
+
         /* @var $uri Zend_Uri_Http */
         $uri = Zend_Uri::factory($url);
         $uri->setQuery($query);
