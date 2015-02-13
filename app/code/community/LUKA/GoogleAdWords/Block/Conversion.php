@@ -331,8 +331,8 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
             $query['value'] = $value;
         }
 
-//        $query['guid'] = 'ON';
-//        $query['script'] = 0;
+        $query['guid'] = 'ON';
+        $query['script'] = 0;
 
         /* @var $uri Zend_Uri_Http */
         $uri = Zend_Uri::factory($url);
