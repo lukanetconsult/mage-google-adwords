@@ -33,6 +33,7 @@
     <!-- Google Conversion Code -->
     <div class="google-adwords-conversion-tracker">
         <script type="text/javascript">
+        /* <![CDATA[ */
         var google_conversion_id = <?php echo $this->getConversionId() ?>;
         var google_conversion_language = '<?php echo $this->jsQuoteEscape($this->getConversionLanguage()) ?>';
         var google_conversion_format = <?php echo $this->getConversionFormat() ?>;
@@ -43,6 +44,7 @@
         <?php if ($_value > 0): ?>
         var google_conversion_value = <?php echo $_value ?>;
         <?php endif ?>
+        /* ]]> */
         </script>
         <script type="text/javascript" src="<?php echo $this->getConversionScriptUrl() ?>"></script>
 
