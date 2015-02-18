@@ -1,3 +1,8 @@
+# Version 1.0.2
+
+Fixed issues with Google's Tag Assistant validator. (Thanks to @nja78)
+See https://github.com/lukanetconsult/mage-google-adwords/pull/8
+
 # Version 1.0.1
 
 Fixed possible different conversion values in script and noscript
