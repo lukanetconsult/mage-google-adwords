@@ -1,6 +1,23 @@
+# Version 1.1.0
+
+This version is Work in progress!
+
+* Added widget to add the tracking code via cms and/or wysiwyg.
+* [wip] Added Google Awords API
+
+# Version 1.0.2
+
+Fixed issues with Google's Tag Assistant validator. (Thanks to @nja78)
+See https://github.com/lukanetconsult/mage-google-adwords/pull/8
+
+# Version 1.0.1
+
+Fixed possible different conversion values in script and noscript
+See https://github.com/lukanetconsult/mage-google-adwords/issues/5
+
 # Version 1.0
 
-**Important**: 
+**Important**:
 The system configuration for this module has changed to support multiple conversions!
 You have to re-configure your conversion tracking IDs.
 
