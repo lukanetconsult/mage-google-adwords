@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package>
     <name>LUKA_GoogleAdWords</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <stability>stable</stability>
     <license uri="http://www.gnu.org/licenses/gpl-3.0.txt">GNU General Public License 3</license>
     <channel>community</channel>
