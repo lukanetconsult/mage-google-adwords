@@ -21,8 +21,8 @@ The code will be placed on the onepage checkout success page</description>
     <date>2009-09-03</date>
     <time>13:41:57</time>
     <version>
-        <release>1.0.0</release>
-        <api>1.0.0</api>
+        <release>1.1.0</release>
+        <api>1.1.0</api>
     </version>
     <stability>
         <release>stable</release>
