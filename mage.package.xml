@@ -4,7 +4,7 @@
     <version>1.0.2</version>
     <stability>stable</stability>
     <license uri="http://www.gnu.org/licenses/gpl-3.0.txt">GNU General Public License 3</license>
-    <channel>Community</channel>
+    <channel>community</channel>
     <extends />
     <compatible />
     <dependencies />
