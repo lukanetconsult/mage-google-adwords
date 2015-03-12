@@ -15,8 +15,8 @@
     <property name="build.dir" value="../build/gatrack" />
     <property name="build.package.id" value=".${env.BUILD_NUMBER}" />
     <property name="build.package.version" value="1.0.2" />
-    <property name="build.package.name" value="LUKA_GoogleAdWords-connect2-${build.package.version}.tgz" />
-    <property name="build.package.pearname" value="LUKA_GoogleAdWords-${build.package.version}.tgz" />
+    <property name="build.package.name" value="LUKA_GoogleAdWords-${build.package.version}.tgz" />
+    <property name="build.package.pearname" value="LUKA_GoogleAdWords-${build.package.version}.pear.tgz" />
 
     <target name="clean">
         <delete dir="${build.dir}" />
@@ -25,11 +25,13 @@
     <target name="build" depends="clean">
         <mkdir dir="${build.dir}" />
 
+        <!--
         <magepearpackage packagexml="${basedir}/pear.package.xml" packagefile="${build.dir}/${build.package.pearname}" changelog="${basedir}/CHANGELOG.md">
             <fileset dir="${basedir}">
                 <include name="app/**" />
             </fileset>
         </magepearpackage>
+        -->
 
         <magepackage packagexml="${basedir}/mage.package.xml" packagefile="${build.dir}/${build.package.name}" changelog="${basedir}/CHANGELOG.md">
             <fileset dir="${basedir}">
