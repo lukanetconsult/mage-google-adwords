@@ -25,13 +25,11 @@
     <target name="build" depends="clean">
         <mkdir dir="${build.dir}" />
 
-        <!--
         <magepearpackage packagexml="${basedir}/pear.package.xml" packagefile="${build.dir}/${build.package.pearname}" changelog="${basedir}/CHANGELOG.md">
             <fileset dir="${basedir}">
                 <include name="app/**" />
             </fileset>
         </magepearpackage>
-        -->
 
         <magepackage packagexml="${basedir}/mage.package.xml" packagefile="${build.dir}/${build.package.name}" changelog="${basedir}/CHANGELOG.md">
             <fileset dir="${basedir}">
