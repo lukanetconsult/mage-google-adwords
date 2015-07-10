@@ -1,0 +1,6 @@
+app/code/community/LUKA/GoogleAdWords                              app/code/community/LUKA/GoogleAdWords
+app/design/adminhtml/default/default/template/luka/google/adwords  app/design/adminhtml/default/default/template/luka/google/adwords
+app/design/frontend/base/default/template/luka/google/adwords      app/design/frontend/base/default/template/luka/google/adwords
+app/design/frontend/base/default/layout/*                          app/design/frontend/base/default/layout/
+app/etc/modules/LUKA_GoogleAdWords.xml                             app/etc/modules/LUKA_GoogleAdWords.xml
+app/locale/de_DE/*                                                 app/locale/de_DE/
