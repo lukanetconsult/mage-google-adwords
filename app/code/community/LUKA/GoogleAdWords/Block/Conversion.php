@@ -209,6 +209,16 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
     }
 
     /**
+     * Returns the conversion remarkating flag
+     *
+     * @return string
+     */
+    public function getConversionRemarketingOnly()
+    {
+        return (bool) $this->getCurrentConversion()->isRemarketingOnly();
+    }
+
+    /**
      * Returns the conversion color
      *
      * @return string
@@ -268,11 +278,33 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
         }
 
         if (!$this->hasConversionValue() && $this->getOrder()) {
-            $total = $this->getOrder()->getSubtotal();
+            if ($this->hasConversionValueBrutto()) {
+                $total = $this->getOrder()->getSubtotalInclTax();
+            } else {
+                $total = $this->getOrder()->getSubtotal();
+            }
             $this->setConversionValue($total);
         }
 
         return $this->getData('conversion_value');
+    }
+
+    /**
+     * Returns the conversion currency
+     *
+     * @return string
+     */
+    public function getConversionCurrency()
+    {
+        if (!$this->getCurrentConversion()->isUsingValue()) {
+            return false;
+        }
+
+        if (!$this->hasConversionCurrency() && $this->getOrder()) {
+            $this->setConversionCurrency($this->getOrder()->getOrderCurrencyCode());
+        }
+
+        return $this->getData('conversion_currency');
     }
 
     /**
@@ -329,6 +361,7 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
 
         if ($value > 0) {
             $query['value'] = $value;
+            $query['currency_code'] = $this->getConversionCurrency();
         }
 
         $query['guid'] = 'ON';

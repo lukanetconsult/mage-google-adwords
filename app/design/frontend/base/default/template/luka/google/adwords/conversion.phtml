@@ -39,10 +39,12 @@
         var google_conversion_format = <?php echo $this->getConversionFormat() ?>;
         var google_conversion_color = '<?php echo $this->jsQuoteEscape($this->getConversionColor()) ?>';
         var google_conversion_label = '<?php echo $this->jsQuoteEscape($this->getConversionLabel()) ?>';
+        var google_remarketing_only = <?php echo $this->getConversionRemarketingOnly() ? 'true' : 'false' ?>;
 
         <?php $_value = (float)$this->getConversionValue() ?>
         <?php if ($_value > 0): ?>
         var google_conversion_value = <?php echo $_value ?>;
+        var google_conversion_currency = '<?php echo $this->getConversionCurrency() ?>';
         <?php endif ?>
         /* ]]> */
         </script>

@@ -76,6 +76,17 @@ class LUKA_GoogleAdWords_Model_Conversion extends Varien_Object
         return $flag;
     }
 
+    /**
+     * Check if value is used
+     *
+     * @return bool
+     */
+    public function isUsingValueBrutto()
+    {
+        $flag = (bool)$this->_getData('use_value_brutto');
+        return $flag;
+    }
+
 	/**
      * Current conversion code
      *
@@ -94,6 +105,17 @@ class LUKA_GoogleAdWords_Model_Conversion extends Varien_Object
     public function getLabel()
     {
         return $this->_getData('label');
+    }
+
+    /**
+     * Conversion remarketing only flag
+     *
+     * @return bool
+     */
+    public function isRemarketingOnly()
+    {
+        $flag = (bool)$this->_getData('remarketingonly');
+        return $flag;
     }
 
     /**
