@@ -101,6 +101,26 @@ extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
                 array('value' => 0, 'label' => $this->helper('adminhtml')->__('No'))
             )
         ));
+
+        $this->addColumn('use_value_brutto', array(
+            'label' => $this->__('Submit Order Value with VAT'),
+            'size' => 16,
+            'renderer' => $this->getLayout()->createBlock('luka_googleaw/adminhtml_config_conversion_select'),
+            'options' => array(
+                array('value' => 1, 'label' => $this->helper('adminhtml')->__('Yes')),
+                array('value' => 0, 'label' => $this->helper('adminhtml')->__('No'))
+            )
+        ));
+
+        $this->addColumn('remarketingonly', array(
+            'label' => $this->__('Is remarketing only?'),
+            'size' => 16,
+            'renderer' => $this->getLayout()->createBlock('luka_googleaw/adminhtml_config_conversion_select'),
+            'options' => array(
+                array('value' => 1, 'label' => $this->helper('adminhtml')->__('Yes')),
+                array('value' => 0, 'label' => $this->helper('adminhtml')->__('No'))
+            )
+        ));
     }
 
 	/**
