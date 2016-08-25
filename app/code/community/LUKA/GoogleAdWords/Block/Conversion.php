@@ -58,6 +58,10 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
         parent::_construct();
         $this->setTemplate('luka/google/adwords/conversion.phtml');
 
+        /* this block should not be cached */
+        $this->unsetData('cache_lifetime');
+        $this->unsetData('cache_tags');
+
         return $this;
     }
 
@@ -66,8 +70,14 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
      */
     protected function _initCurrentConversion()
     {
-        $action = $this->getAction();
-        $conversion = $this->getConversionCollection()->getItemByAction($action);
+        /** @var LUKA_GoogleAdWords_Model_Session $session */
+        $session = Mage::getModel('luka_googleaw/session');
+        $eventType = $session->popEvent();
+        if ($eventType === false) {
+            return $this;
+        }
+
+        $conversion = $this->getConversionCollection()->getItemByAction($eventType);
         $this->setCurrentConversion($conversion);
 
         return $this;
@@ -78,6 +88,7 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
      */
     protected function _initConversionCollection()
     {
+        /** @var LUKA_GoogleAdWords_Model_Conversion_Collection $collection */
         $collection = Mage::getModel('luka_googleaw/conversion_collection');
         $this->setConversionCollection($collection);
 
@@ -124,6 +135,8 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
      * set current conversion collection
      *
      * @param LUKA_GoogleAdWords_Model_Conversion_Collection $collection
+     *
+     * @return LUKA_GoogleAdWords_Block_Conversion
      */
     public function setConversionCollection(LUKA_GoogleAdWords_Model_Conversion_Collection $collection)
     {
@@ -135,6 +148,8 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
      * Set current conversion
      *
      * @param LUKA_GoogleAdWords_Model_Conversion $conversion
+     *
+     * @return LUKA_GoogleAdWords_Block_Conversion
      */
     public function setCurrentConversion($conversion = null)
     {
@@ -169,12 +184,6 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
     public function getConversionId()
     {
         return $this->getCurrentConversion()->getCode();
-//         if (!$this->hasConversionId()) {
-//             $conversionId = (int)Mage::getStoreConfig('google/adwords_conversion/conversion_id');
-//             $this->setConversionId($conversionId);
-//         }
-
-//         return $this->getData('conversion_id');
     }
 
     /**
@@ -200,12 +209,6 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
     public function getConversionLabel()
     {
         return $this->getCurrentConversion()->getLabel();
-//         if (!$this->hasConversionLabel()) {
-//             $label = (string)Mage::getStoreConfig('google/adwords_conversion/label');
-//             $this->setConversionLabel($label);
-//         }
-
-//         return $this->getData('conversion_label');
     }
 
     /**

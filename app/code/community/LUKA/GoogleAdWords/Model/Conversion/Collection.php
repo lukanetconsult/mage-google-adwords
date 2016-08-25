@@ -88,13 +88,14 @@ extends Varien_Data_Collection
     /**
      * Find item by action name
      *
-     * @param Mage_Core_Controller_Varien_Action $action
+     * @param string $actionName
      * @return LUKA_GoogleAdWords_Model_Conversion|false
      */
-    public function getItemByAction(Mage_Core_Controller_Varien_Action $action)
+    public function getItemByAction($actionName)
     {
+        /** @var LUKA_GoogleAdWords_Model_Conversion $item */
         foreach ($this as $item) {
-            if (!$item->match($action)) {
+            if (!$item->match($actionName)) {
                 continue;
             }
 
@@ -102,5 +103,16 @@ extends Varien_Data_Collection
         }
 
         return false;
+    }
+
+    /**
+     * @param string $actionName
+     *
+     * @return bool
+     */
+    public function isValidActionName($actionName)
+    {
+        $item = $this->getItemByAction($actionName);
+        return $item instanceof LUKA_GoogleAdWords_Model_Conversion;
     }
 }
