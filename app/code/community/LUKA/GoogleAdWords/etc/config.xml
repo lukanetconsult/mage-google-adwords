@@ -2,7 +2,7 @@
 <config>
     <modules>
         <LUKA_GoogleAdWords>
-            <version>1.0.2</version>
+            <version>1.1.0</version>
         </LUKA_GoogleAdWords>
     </modules>
 
@@ -26,6 +26,18 @@
         </models>
     </global>
 
+    <adminhtml>
+        <translate>
+            <modules>
+                <LUKA_GoogleAdWords>
+                    <files>
+                        <luka>LUKA_GoogleAdWords.csv</luka>
+                    </files>
+                </LUKA_GoogleAdWords>
+            </modules>
+        </translate>
+    </adminhtml>
+
     <frontend>
         <layout>
             <updates>
@@ -44,6 +56,25 @@
                 </LUKA_GoogleAdWords>
             </modules>
         </translate>
+
+        <events>
+            <customer_register_success>
+                <observers>
+                    <luka_googleaw>
+                        <class>luka_googleaw/observer</class>
+                        <method>queueRegistrationConversion</method>
+                    </luka_googleaw>
+                </observers>
+            </customer_register_success>
+            <controller_action_predispatch>
+                <observers>
+                    <luka_googleaw>
+                        <class>luka_googleaw/observer</class>
+                        <method>queuePageViewConversion</method>
+                    </luka_googleaw>
+                </observers>
+            </controller_action_predispatch>
+        </events>
     </frontend>
 
     <default>
@@ -53,6 +84,24 @@
                 <color>ffffff</color>
                 <locale>en_US</locale>
                 <format>3</format>
+                <action_types>
+                    <checkout_onepage_success>
+                        <value>checkout_onepage_success</value>
+                        <label>Page: Onepage Checkout Success</label>
+                    </checkout_onepage_success>
+                    <paypal_standard_success>
+                        <value>paypal_standard_success</value>
+                        <label>Page: PayPal Standard Checkout Success</label>
+                    </paypal_standard_success>
+                    <CUSTOM>
+                        <value>CUSTOM</value>
+                        <label>Page: Use Custom Action Name</label>
+                    </CUSTOM>
+                    <event__user_registration>
+                        <value>event::user_registration</value>
+                        <label>Event: User registration</label>
+                    </event__user_registration>
+                </action_types>
             </adwords_conversion>
         </google>
     </default>
