@@ -34,16 +34,15 @@ class LUKA_GoogleAdWords_Model_Conversion extends Varien_Object
     /**
      * Match conversion to controller object
      *
-     * @param Mage_Core_Controller_Varien_Action $action
+     * @param string $actionName
      */
-    public function match(Mage_Core_Controller_Varien_Action $action)
+    public function match($actionName)
     {
-        $actionName = $action->getFullActionName();
         $match = ($this->getAction() == $actionName);
 
         $this->setIsMatching($match);
         Mage::dispatchEvent('luka_googleaw_match_controller', array(
-            'action' => $action,
+            'action' => $actionName,
             'conversion' => $this
         ));
 

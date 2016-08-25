@@ -43,7 +43,7 @@ extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
 
     }
 
-	/**
+    /**
      * (non-PHPdoc)
      * @see Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract::_prepareToRender()
      */
@@ -53,11 +53,7 @@ extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
             'label' => $this->__('Page'),
             'size' => 28,
             'renderer' => $this->getLayout()->createBlock('luka_googleaw/adminhtml_config_conversion_select'),
-            'options' => array(
-                array('value' => 'checkout_onepage_success', 'label' => $this->__('Onepage Checkout Success')),
-                array('value' => 'paypal_standard_success', 'label' => $this->__('PayPal Standard Checkout Success')),
-                array('value' => 'CUSTOM', 'label' => $this->__('Use Custom Action Name'))
-            )
+            'options' => $this->_prepareConversionTypeOptions()
         ));
 
         $this->addColumn('custom_action', array(
@@ -123,7 +119,32 @@ extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
         ));
     }
 
-	/**
+    /**
+     * Prepares the list of action select field options.
+     *
+     * @return array
+     */
+    protected function _prepareConversionTypeOptions()
+    {
+        /** @var array $config */
+        $config  = Mage::getStoreConfig('google/adwords_conversion/action_types');
+        $options = array();
+
+        foreach ($config as $actionType) {
+            $options[] = array(
+                'label' => $this->__($actionType['label']),
+                'value' => $actionType['value']
+            );
+        }
+
+        usort($options, function ($actionA, $actionB) {
+            return strcmp($actionA['label'], $actionB['label']);
+        });
+
+        return $options;
+    }
+
+    /**
      * (non-PHPdoc)
      * @see Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract::addColumn()
      */

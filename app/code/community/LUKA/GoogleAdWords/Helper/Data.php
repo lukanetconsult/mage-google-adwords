@@ -36,4 +36,27 @@
  */
 class LUKA_GoogleAdWords_Helper_Data extends Mage_Core_Helper_Data
 {
+    /**
+     * @param string $actionName
+     *
+     * @return bool
+     */
+    protected function _isAllowedActionName($actionName)
+    {
+        /** @var LUKA_GoogleAdWords_Model_Conversion_Collection $collection */
+        $collection = Mage::getModel('luka_googleaw/conversion_collection');
+        return $collection->isValidActionName($actionName);
+    }
+
+    /**
+     * @param string $eventName
+     */
+    public function pushConversionEvent($eventName)
+    {
+        if ($this->_isAllowedActionName($eventName)) {
+            /** @var LUKA_GoogleAdWords_Model_Session $session */
+            $session = Mage::getModel('luka_googleaw/session');
+            $session->pushEvent($eventName);
+        }
+    }
 }

@@ -1,3 +1,10 @@
+# Version 1.1.0
+
+Added possibility to track more custom system events.
+Exposed php API for possible extension:
+
+    Mage::helper('luka_googleaw')->pushConversionEvent('event::user_registration');
+
 # Version 1.0.2
 
 Fixed issues with Google's Tag Assistant validator. (Thanks to @nja78)
