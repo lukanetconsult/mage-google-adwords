@@ -314,13 +314,7 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
      */
     public function getConversionScriptUrl()
     {
-        $url = 'http://www.googleadservices.com/pagead/conversion.js';
-
-        if ($this->getRequest()->isSecure()) {
-            $url = 'https://www.googleadservices.com/pagead/conversion.js';
-        }
-
-        return $url;
+        return '//www.googleadservices.com/pagead/conversion.js';
     }
 
     /**
@@ -347,13 +341,7 @@ class LUKA_GoogleAdWords_Block_Conversion extends Mage_Core_Block_Template
      */
     public function getFallbackUrl()
     {
-        $url = 'http';
-
-        if ($this->getRequest()->isSecure()) {
-            $url .= 's';
-        }
-
-        $url .= '://www.googleadservices.com/pagead/conversion/'
+        $url = '//www.googleadservices.com/pagead/conversion/'
               . $this->getConversionId() . '/';
 
         $query = array('label' => $this->getConversionLabel());
